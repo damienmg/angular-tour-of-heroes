@@ -1,0 +1,15 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_config")
+
+ts_config(
+    name = "tsconfig",
+    src = "tsconfig.app.json",
+    deps = ["//:tsconfig.json"],
+)
+
+ts_config(
+    name = "tsconfig-spec",
+    src = "tsconfig.spec.json",
+    deps = [":tsconfig.app.json"],
+)
